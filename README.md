@@ -25,4 +25,4 @@
 - stworzono ekrany dla pomieszczeń,
 
 12.12.2022:
-- zapeniono zapamiętywanie stanow poszczególnych ustawień po wysciu z danego ekranu,
+- zapewniono zapamiętywanie stanow poszczególnych ustawień po wysciu z danego ekranu,
