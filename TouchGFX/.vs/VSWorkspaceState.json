@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\gui",
+    "\\gui\\include",
+    "\\gui\\include\\gui",
+    "\\gui\\include\\gui\\model",
+    "\\gui\\src",
+    "\\gui\\src\\garaz_screen",
+    "\\gui\\src\\model",
+    "\\gui\\src\\ogrod_screen",
+    "\\gui\\src\\salon_screen"
+  ],
+  "SelectedNode": "\\gui\\src\\garaz_screen\\garazPresenter.cpp",
+  "PreviewInSolutionExplorer": false
+}
