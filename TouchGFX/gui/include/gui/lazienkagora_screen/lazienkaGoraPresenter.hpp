@@ -26,7 +26,12 @@ public:
     virtual void deactivate();
 
     virtual ~lazienkaGoraPresenter() {};
-
+    void setTempLazGora(int temp);
+    int getTempLazGora();
+    void setLazGoraPodgrzewanie(bool on);
+    bool getLazGoraPodgrzewanie();
+    void setSauna(bool on);
+    bool getSauna();
 private:
     lazienkaGoraPresenter();
 

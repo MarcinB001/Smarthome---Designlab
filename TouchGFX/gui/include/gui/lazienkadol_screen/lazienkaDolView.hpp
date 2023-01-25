@@ -13,8 +13,9 @@ public:
     virtual void tearDownScreen();
     virtual void tempUp();
     virtual void tempDown();
+    virtual void podgrzewanieLazDolButtonClicked();
 protected:
-    int counter{};
+
 };
 
 #endif // LAZIENKADOLVIEW_HPP

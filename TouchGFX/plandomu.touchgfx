@@ -123,28 +123,6 @@
           },
           {
             "Type": "ButtonWithLabel",
-            "Name": "buttonKotlownia",
-            "X": 433,
-            "Y": 75,
-            "Width": 97,
-            "Height": 60,
-            "Pressed": "btn_round_pressed.png",
-            "Released": "btn_round.png",
-            "TextId": "__SingleUse_WPJX",
-            "ReleasedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "PressedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "TextRotation": "0"
-          },
-          {
-            "Type": "ButtonWithLabel",
             "Name": "buttonLazienka",
             "X": 199,
             "Y": 300,
@@ -1298,6 +1276,17 @@
               "Type": "ActionCustom",
               "FunctionName": "tempDown"
             }
+          },
+          {
+            "InteractionName": "podgrzewania",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "floorHeating"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "podgrzewanieLazDolButtonClicked"
+            }
           }
         ]
       },
@@ -1634,6 +1623,28 @@
               "Type": "ActionCustom",
               "FunctionName": "tempWDown"
             }
+          },
+          {
+            "InteractionName": "podgrzewanie",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "floorHeating"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "podgrzewanieLazGoraButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "sauna",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "sauna"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "saunaButtonClicked"
+            }
           }
         ]
       },
@@ -1781,6 +1792,17 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "tempDown"
+            }
+          },
+          {
+            "InteractionName": "oswietlenie",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "lamp"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "oswietleniePok1ButtonClicked"
             }
           }
         ]
@@ -1930,6 +1952,17 @@
               "Type": "ActionCustom",
               "FunctionName": "tempDown"
             }
+          },
+          {
+            "InteractionName": "oswietlenie",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "lamp"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "oswietleniePok2ButtonClicked"
+            }
           }
         ]
       },
@@ -2078,6 +2111,17 @@
               "Type": "ActionCustom",
               "FunctionName": "tempDown"
             }
+          },
+          {
+            "InteractionName": "oswietlenie",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "lamp"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "oswietleniePok3ButtonClicked"
+            }
           }
         ]
       },
@@ -2225,6 +2269,17 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "tempDown"
+            }
+          },
+          {
+            "InteractionName": "oswietlenie",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "lamp"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "oswietlenieSypButtonClicked"
             }
           }
         ]

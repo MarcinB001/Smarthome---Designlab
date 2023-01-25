@@ -6,14 +6,28 @@
 
 pokoj2View::pokoj2View()
 {
-    counter = 15 + (rand() % (30 - 15 + 1)); //losowa liczba z przedzialu od 15 do 30 
-    Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
-    textCounter.resizeToCurrentText();
+
 }
 
 void pokoj2View::setupScreen()
 {
     pokoj2ViewBase::setupScreen();
+
+
+    Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", presenter->getTempPok2());
+    textCounter.resizeToCurrentText();
+
+    if (presenter->getPok2Oswietlenie())
+    {
+        lamp.forceState(true);
+        lamp.invalidate();
+    }
+    else
+    {
+        lamp.forceState(false);
+        lamp.invalidate();
+    }
+
 }
 
 void pokoj2View::tearDownScreen()
@@ -22,22 +36,36 @@ void pokoj2View::tearDownScreen()
 }
 void pokoj2View::tempUp()
 {
-    if (counter < 30)
+    int temp = presenter->getTempPok2();
+    if (temp < 30)
     {
-        counter++;
-        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
+        temp++;
+        presenter->setTempPok2(temp);
+        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", temp);
         textCounter.invalidate();
     }
-    else {}
 }
 
 void pokoj2View::tempDown()
 {
-    if (counter <= 30 && counter > 15)
+    int temp = presenter->getTempPok2();
+    if (temp <= 30 && temp > 15)
     {
-        counter--;
-        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
+        temp--;
+        presenter->setTempPok2(temp);
+        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", temp);
         textCounter.invalidate();
     }
-    else {}
+}
+
+void pokoj2View::oswietleniePok2ButtonClicked()
+{
+    if (lamp.getState())
+    {
+        presenter->setPok2Oswietlenie(true);
+    }
+    else
+    {
+        presenter->setPok2Oswietlenie(false);
+    }
 }

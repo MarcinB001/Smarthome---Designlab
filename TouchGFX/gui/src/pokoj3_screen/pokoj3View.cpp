@@ -3,17 +3,30 @@
 #include <iostream>
 #include <random>
 
-
 pokoj3View::pokoj3View()
 {
-    counter = 15 + (rand() % (30 - 15 + 1)); //losowa liczba z przedzialu od 15 do 30 
-    Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
-    textCounter.resizeToCurrentText();
+
 }
 
 void pokoj3View::setupScreen()
 {
     pokoj3ViewBase::setupScreen();
+
+
+    Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", presenter->getTempPok3());
+    textCounter.resizeToCurrentText();
+
+    if (presenter->getPok3Oswietlenie())
+    {
+        lamp.forceState(true);
+        lamp.invalidate();
+    }
+    else
+    {
+        lamp.forceState(false);
+        lamp.invalidate();
+    }
+
 }
 
 void pokoj3View::tearDownScreen()
@@ -22,22 +35,36 @@ void pokoj3View::tearDownScreen()
 }
 void pokoj3View::tempUp()
 {
-    if (counter < 30)
+    int temp = presenter->getTempPok3();
+    if (temp < 30)
     {
-        counter++;
-        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
+        temp++;
+        presenter->setTempPok3(temp);
+        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", temp);
         textCounter.invalidate();
     }
-    else {}
 }
 
 void pokoj3View::tempDown()
 {
-    if (counter <= 30 && counter > 15)
+    int temp = presenter->getTempPok3();
+    if (temp <= 30 && temp > 15)
     {
-        counter--;
-        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
+        temp--;
+        presenter->setTempPok3(temp);
+        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", temp);
         textCounter.invalidate();
     }
-    else {}
+}
+
+void pokoj3View::oswietleniePok3ButtonClicked()
+{
+    if (lamp.getState())
+    {
+        presenter->setPok3Oswietlenie(true);
+    }
+    else
+    {
+        presenter->setPok3Oswietlenie(false);
+    }
 }

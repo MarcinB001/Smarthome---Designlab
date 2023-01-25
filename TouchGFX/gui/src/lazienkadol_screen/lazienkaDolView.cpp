@@ -6,14 +6,28 @@
 
 lazienkaDolView::lazienkaDolView()
 {
-    counter = 15 + (rand() % (30 - 15 + 1)); //losowa liczba z przedzialu od 15 do 30 
-    Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
-    textCounter.resizeToCurrentText();
+
 }
 
 void lazienkaDolView::setupScreen()
 {
     lazienkaDolViewBase::setupScreen();
+
+
+    Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", presenter->getTempLazDol());
+    textCounter.resizeToCurrentText();
+
+    if (presenter->getLazDolPodgrzewanie())
+    {
+        floorHeating.forceState(true);
+        floorHeating.invalidate();
+    }
+    else
+    {
+        floorHeating.forceState(false);
+        floorHeating.invalidate();
+    }
+
 }
 
 void lazienkaDolView::tearDownScreen()
@@ -22,22 +36,36 @@ void lazienkaDolView::tearDownScreen()
 }
 void lazienkaDolView::tempUp()
 {
-    if (counter < 30)
+    int temp = presenter->getTempLazDol();
+    if (temp < 30)
     {
-        counter++;
-        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
+        temp++;
+        presenter->setTempLazDol(temp);
+        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", temp);
         textCounter.invalidate();
     }
-    else {}
 }
 
 void lazienkaDolView::tempDown()
 {
-    if (counter <= 30 && counter > 15)
+    int temp = presenter->getTempLazDol();
+    if (temp <= 30 && temp > 15)
     {
-        counter--;
-        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counter);
+        temp--;
+        presenter->setTempLazDol(temp);
+        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", temp);
         textCounter.invalidate();
     }
-    else {}
+}
+
+void lazienkaDolView::podgrzewanieLazDolButtonClicked()
+{
+    if (floorHeating.getState())
+    {
+        presenter->setLazDolPodgrzewanie(true);
+    }
+    else
+    {
+        presenter->setLazDolPodgrzewanie(false);
+    }
 }

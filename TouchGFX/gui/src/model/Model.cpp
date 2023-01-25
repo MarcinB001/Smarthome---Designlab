@@ -15,7 +15,13 @@ Model::Model() :
 	mocPalnik2(0),
 	mocPalnik3(0),
 	mocPalnik4(0),
-	tempBasen(15 + (int)distB(engine))
+	tempBasen(15 + (int)distB(engine)),
+	tempLazDol(15 + (int)dist(engine)),
+	tempLazGora(15 + (int)distB(engine)),
+	tempPok1(15 + (int)dist(engine)),
+	tempPok2(15 + (int)dist(engine)),
+	tempPok3(15 + (int)dist(engine)),
+	tempSyp(15 + (int)dist(engine))
 {
 	
 }
@@ -203,4 +209,121 @@ void Model::setLadowanie(bool on)
 bool Model::getLadowanie()
 {
 	return ladowanie;
+}
+
+//lazienka dol
+void Model::setTempLazDol(int temp)
+{
+	tempLazDol = temp;
+}
+int Model::getTempLazDol()
+{
+	return tempLazDol;
+}
+void Model::setLazDolPodgrzewanie(bool on)
+{
+	podgrzeanieLazDol = on;
+}
+bool Model::getLazDolPodgrzewanie()
+{
+	return podgrzeanieLazDol;
+}
+
+//lazienka gora
+void Model::setTempLazGora(int temp)
+{
+	tempLazGora = temp;
+}
+int Model::getTempLazGora()
+{
+	return tempLazGora;
+}
+void Model::setLazGoraPodgrzewanie(bool on)
+{
+	podgrzewanieLazGora = on;
+}
+bool Model::getLazGoraPodgrzewanie()
+{
+	return podgrzewanieLazGora;
+}
+void Model::setSauna(bool on)
+{
+	sauna = on;
+}
+bool Model::getSauna()
+{
+	return sauna;
+}
+
+//pokoj 1
+void Model::setTempPok1(int temp)
+{
+	tempPok1 = temp;
+}
+int Model::getTempPok1()
+{
+	return tempPok1;
+}
+void Model::setPok1Oswietlenie(bool on)
+{
+	oswietleniePok1 = on;
+}
+bool Model::getPok1Oswietlenie()
+{
+	return oswietleniePok1;
+}
+
+//pokoj 2
+void Model::setTempPok2(int temp)
+{
+	tempPok2 = temp;
+}
+int Model::getTempPok2()
+{
+	return tempPok2;
+}
+void Model::setPok2Oswietlenie(bool on)
+{
+	oswietleniePok2 = on;
+}
+bool Model::getPok2Oswietlenie()
+{
+	return oswietleniePok2;
+}
+
+//pokoj 3
+void Model::setTempPok3(int temp)
+{
+	tempPok3= temp;
+}
+int Model::getTempPok3()
+{
+	return tempPok3;
+}
+void Model::setPok3Oswietlenie(bool on)
+{
+	oswietleniePok3 = on;
+}
+bool Model::getPok3Oswietlenie()
+{
+	return oswietleniePok3;
+}
+
+
+//sypialnia
+void Model::setTempSyp(int temp)
+{
+	tempSyp = temp;
+}
+int Model::getTempSyp()
+{
+	return tempSyp;
+}
+void Model::setSypOswietlenie(bool on)
+{
+	oswietlenieSyp = on;
+}
+bool Model::getSypOswietlenie()
+{
+	return oswietlenieSyp;
 }

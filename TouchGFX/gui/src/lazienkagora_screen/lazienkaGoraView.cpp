@@ -5,40 +5,90 @@
 
 lazienkaGoraView::lazienkaGoraView()
 {
-    counterW = 15 + (rand() % (45 - 15 + 1)); //losowa liczba z przedzialu od 15 do 45
-    Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counterW);
-    textCounter.resizeToCurrentText();
+
 }
 
 void lazienkaGoraView::setupScreen()
 {
     lazienkaGoraViewBase::setupScreen();
-    
+
+
+    Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", presenter->getTempLazGora());
+    textCounter.resizeToCurrentText();
+
+    if (presenter->getLazGoraPodgrzewanie())
+    {
+        floorHeating.forceState(true);
+        floorHeating.invalidate();
+    }
+    else
+    {
+        floorHeating.forceState(false);
+        floorHeating.invalidate();
+    }
+
+    if (presenter->getSauna())
+    {
+        sauna.forceState(true);
+        sauna.invalidate();
+    }
+    else
+    {
+        sauna.forceState(false);
+        sauna.invalidate();
+    }
+
 }
 
 void lazienkaGoraView::tearDownScreen()
 {
     lazienkaGoraViewBase::tearDownScreen();
 }
-
 void lazienkaGoraView::tempWUp()
 {
-    if (counterW < 45)
+    int temp = presenter->getTempLazGora();
+    if (temp < 45)
     {
-        counterW++;
-        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counterW);
+        temp++;
+        presenter->setTempLazGora(temp);
+        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", temp);
         textCounter.invalidate();
     }
-    else {}
 }
 
 void lazienkaGoraView::tempWDown()
 {
-    if (counterW <= 45 && counterW > 15)
+    int temp = presenter->getTempLazGora();
+    if (temp <= 45 && temp > 15)
     {
-        counterW--;
-        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", counterW);
+        temp--;
+        presenter->setTempLazGora(temp);
+        Unicode::snprintf(textCounterBuffer, TEXTCOUNTER_SIZE, "%d", temp);
         textCounter.invalidate();
     }
-    else {}
+}
+
+void lazienkaGoraView::podgrzewanieLazGoraButtonClicked()
+{
+    if (floorHeating.getState())
+    {
+        presenter->setLazGoraPodgrzewanie(true);
+    }
+    else
+    {
+        presenter->setLazGoraPodgrzewanie(false);
+    }
+}
+
+
+void lazienkaGoraView::saunaButtonClicked()
+{
+    if (sauna.getState())
+    {
+        presenter->setSauna(true);
+    }
+    else
+    {
+        presenter->setSauna(false);
+    }
 }

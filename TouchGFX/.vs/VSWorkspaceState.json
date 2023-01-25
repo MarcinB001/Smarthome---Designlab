@@ -4,13 +4,13 @@
     "\\gui",
     "\\gui\\include",
     "\\gui\\include\\gui",
-    "\\gui\\include\\gui\\model",
+    "\\gui\\include\\gui\\pokoj3_screen",
+    "\\gui\\include\\gui\\sypialnia_screen",
     "\\gui\\src",
-    "\\gui\\src\\garaz_screen",
-    "\\gui\\src\\model",
-    "\\gui\\src\\ogrod_screen",
-    "\\gui\\src\\salon_screen"
+    "\\gui\\src\\pokoj2_screen",
+    "\\gui\\src\\pokoj3_screen",
+    "\\gui\\src\\sypialnia_screen"
   ],
-  "SelectedNode": "\\gui\\src\\garaz_screen\\garazPresenter.cpp",
+  "SelectedNode": "\\gui\\src\\lazienkagora_screen\\lazienkaGoraView.cpp",
   "PreviewInSolutionExplorer": false
 }

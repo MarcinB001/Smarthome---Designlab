@@ -41,6 +41,7 @@ lazienkaDolViewBase::lazienkaDolViewBase() :
 
     floorHeating.setXY(300, 140);
     floorHeating.setBitmaps(touchgfx::Bitmap(BITMAP_PODLOGA200NA200_ID), touchgfx::Bitmap(BITMAP_PODLOGAGRZANIE200NA200_ID));
+    floorHeating.setAction(buttonCallback);
 
     add(__background);
     add(background);
@@ -79,5 +80,12 @@ void lazienkaDolViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& 
         //When up clicked call virtual function
         //Call tempUp
         tempUp();
+    }
+    else if (&src == &floorHeating)
+    {
+        //podgrzewania
+        //When floorHeating clicked call virtual function
+        //Call podgrzewanieLazDolButtonClicked
+        podgrzewanieLazDolButtonClicked();
     }
 }

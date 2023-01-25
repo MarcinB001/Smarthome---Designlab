@@ -16,3 +16,19 @@ void pokoj2Presenter::deactivate()
 {
 
 }
+void pokoj2Presenter::setTempPok2(int temp)
+{
+    model->setTempPok2(temp);
+}
+int pokoj2Presenter::getTempPok2()
+{
+    return model->getTempPok2();
+}
+void pokoj2Presenter::setPok2Oswietlenie(bool on)
+{
+    model->setPok2Oswietlenie(on);
+}
+bool pokoj2Presenter::getPok2Oswietlenie()
+{
+    return model->getPok2Oswietlenie();
+}

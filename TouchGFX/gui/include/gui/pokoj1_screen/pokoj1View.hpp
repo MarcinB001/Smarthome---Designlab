@@ -13,6 +13,7 @@ public:
     virtual void tearDownScreen();
     virtual void tempUp();
     virtual void tempDown();
+    virtual void oswietleniePok1ButtonClicked();
 protected:
     int counter{};
 };

@@ -27,6 +27,11 @@ public:
 
     virtual ~lazienkaDolPresenter() {};
 
+    void setTempLazDol(int temp);
+    int getTempLazDol();
+    void setLazDolPodgrzewanie(bool on);
+    bool getLazDolPodgrzewanie();
+
 private:
     lazienkaDolPresenter();
 

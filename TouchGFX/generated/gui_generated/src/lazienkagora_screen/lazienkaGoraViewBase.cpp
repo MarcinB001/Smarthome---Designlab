@@ -22,9 +22,11 @@ lazienkaGoraViewBase::lazienkaGoraViewBase() :
 
     floorHeating.setXY(72, 140);
     floorHeating.setBitmaps(touchgfx::Bitmap(BITMAP_PODLOGA200NA200_ID), touchgfx::Bitmap(BITMAP_PODLOGAGRZANIE200NA200_ID));
+    floorHeating.setAction(buttonCallback);
 
     sauna.setXY(313, 140);
     sauna.setBitmaps(touchgfx::Bitmap(BITMAP_SAUNA200NA200_ID), touchgfx::Bitmap(BITMAP_SAUNAWLACZONA200NA200_ID));
+    sauna.setAction(buttonCallback);
 
     bath.setXY(556, 114);
     bath.setBitmaps(touchgfx::Bitmap(BITMAP_WANNA200NA200_ID), touchgfx::Bitmap(BITMAP_WANNAWLACZONA200NA200_ID));
@@ -69,6 +71,20 @@ void lazienkaGoraViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&
         //When goBack clicked change screen to Pietro
         //Go to Pietro with no screen transition
         application().gotoPietroScreenNoTransition();
+    }
+    else if (&src == &floorHeating)
+    {
+        //podgrzewanie
+        //When floorHeating clicked call virtual function
+        //Call podgrzewanieLazGoraButtonClicked
+        podgrzewanieLazGoraButtonClicked();
+    }
+    else if (&src == &sauna)
+    {
+        //sauna
+        //When sauna clicked call virtual function
+        //Call saunaButtonClicked
+        saunaButtonClicked();
     }
     else if (&src == &downW)
     {

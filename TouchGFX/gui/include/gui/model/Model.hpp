@@ -66,6 +66,46 @@ public:
     //garaz
     void setLadowanie(bool on);
     bool getLadowanie();
+
+    //lazienka dol
+    void setTempLazDol(int temp);
+    int getTempLazDol();
+    void setLazDolPodgrzewanie(bool on);
+    bool getLazDolPodgrzewanie();
+
+    //lazienka gora
+    void setTempLazGora(int temp);
+    int getTempLazGora();
+    void setLazGoraPodgrzewanie(bool on);
+    bool getLazGoraPodgrzewanie();
+    void setSauna(bool on);
+    bool getSauna();
+
+    //pokoj 1
+    void setTempPok1(int temp);
+    int getTempPok1();
+    void setPok1Oswietlenie(bool on);
+    bool getPok1Oswietlenie();
+
+    //pokoj 2
+    void setTempPok2(int temp);
+    int getTempPok2();
+    void setPok2Oswietlenie(bool on);
+    bool getPok2Oswietlenie();
+
+    //pokoj 3
+    void setTempPok3(int temp);
+    int getTempPok3();
+    void setPok3Oswietlenie(bool on);
+    bool getPok3Oswietlenie();
+
+    //sypialnia
+    void setTempSyp(int temp);
+    int getTempSyp();
+    void setSypOswietlenie(bool on);
+    bool getSypOswietlenie();
+
+
    
 protected:
     ModelListener* modelListener;
@@ -84,6 +124,24 @@ protected:
     bool podlewanie, oswietlenieOgrod;
     //garaz
     bool ladowanie;
+    //lazienka dol
+    int tempLazDol;
+    bool podgrzeanieLazDol;
+    //lazienka gora
+    int tempLazGora;
+    bool podgrzewanieLazGora, sauna;
+    //pokoj 1
+    int tempPok1;
+    bool oswietleniePok1;
+    //pokoj 2
+    int tempPok2;
+    bool oswietleniePok2;
+    //pokoj 3
+    int tempPok3;
+    bool oswietleniePok3;
+    //sypialnia
+    int tempSyp;
+    bool oswietlenieSyp;
 };
 
 #endif // MODEL_HPP

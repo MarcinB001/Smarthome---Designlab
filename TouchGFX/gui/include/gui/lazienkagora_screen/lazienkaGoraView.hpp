@@ -13,8 +13,9 @@ public:
     virtual void tearDownScreen();
     virtual void tempWUp();
     virtual void tempWDown();
+    virtual void podgrzewanieLazGoraButtonClicked();
+    virtual void saunaButtonClicked();
 protected:
-    int counterW{};
 };
 
 #endif // LAZIENKAGORAVIEW_HPP
